@@ -1,25 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+import React,{useState} from 'react'
 
-function App() {
+import './App.css'
+
+
+
+const App = () => {
+
+  const[userName,setUserName] = useState("");
+  const[password,setPassword] = useState("");
+  const[showPassword,setShowPassword] = useState(true);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <div className="container" >
+       <input 
+       type="text"
+       placeholder=" Enter username"
+       value={userName}
+       onChange={(e)=>setUserName(e.target.value)
+       
+      }
+     
+       />
+       <input 
+       type="password"
+       placeholder=" Enter Password"
+       value={password}
+       onChange={(e)=>setPassword(e.target.value)}
+       />
+     
+     <h2>{userName}</h2>
+     <h2>{showPassword ? password: "*".repeat(password.length)}</h2>
+
+     <button onClick={(e) =>setShowPassword(!showPassword)} > Show/Hide password</button>
+       
+     </div>
+  )
 }
 
-export default App;
+export default App
+
